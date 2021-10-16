@@ -1,0 +1,47 @@
+﻿@model Ventus.BE.Usuario
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MVC 3 - Login</title>
+</head>
+<body>
+	@using (Html.BeginForm())
+ {
+        <fieldset>
+			@Html.ValidationSummary(false)
+			<table>
+				<tr>
+					<td>
+						@Html.LabelFor(o => o.Nombre)
+					</td>
+					<td>
+						@Html.EditorFor(o => o.Nombre)
+					</td>
+				</tr>
+				<tr>
+					<td>@Html.LabelFor(o => o.Contrasena)
+					</td>
+					<td>@Html.PasswordFor(o => o.Contrasena)
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						@Html.EditorFor(o => o.Recuerdame)
+						@Html.LabelFor(o => o.Recuerdame)
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align: right">
+						<input type="submit" value="Log In" />
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+ }
+</body>
+</html>

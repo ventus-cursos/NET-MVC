@@ -1,0 +1,74 @@
+﻿@model Ventus.BE.Cliente
+@{
+    ViewBag.Title = "Cliente";
+}
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>ID
+            </td>
+            <td>
+                @Html.DisplayFor(o => o.ID)
+            </td>
+            <td rowspan="4">
+                <img src='@Url.Action("Foto", new { Model.ID })' alt="" style="width: 100px" />
+            </td>
+        </tr>
+        <tr>
+            <td>Nombre
+            </td>
+            <td>
+                @Html.EditorFor(o => o.Nombre)
+            </td>
+        </tr>
+        <tr>
+            <td>Apellido
+            </td>
+            <td>
+                @Html.EditorFor(o => o.Apellido)
+            </td>
+        </tr>
+        <tr>
+            <td>Ciudad
+            </td>
+            <td>
+                @Html.DropDownListFor(o => o.Ciudad.ID,
+                Ventus.DB.Ciudad.List(true)
+                    .OrderBy(o => o.Nombre)
+                    .Select(o => new SelectListItem
+                    {
+                        Text = o.Nombre,
+                        Value = o.ID.ToString(),
+                        Selected = o.ID == Model.Ciudad.ID
+                    }),
+                    "<seleccione>")
+            </td>
+        </tr>
+        <tr>
+            <td>Fecha de Nacimiento
+            </td>
+            <td>
+                @Html.EditorFor(o => o.FechaNacimiento)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: right">
+                <input type="submit" value="Guardar" />
+                <input type="button" value="Cancelar" onclick="location.href='@Url.Action("Index")    '" />
+            </td>
+        </tr>
+    </table>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Nombre').focus();
+    });
+
+    $('#FechaNacimiento').datepicker({
+        dateFormat: 'dd/mm/yyyy',
+        showOn: "button",
+        buttonImage: "../../image/calendar.png",
+        buttonImageOnly: true
+    });
+</script>

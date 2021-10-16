@@ -1,0 +1,38 @@
+﻿@model Ventus.Models.Ciudad
+@{
+    ViewBag.Title = "Ciudades";
+}
+@Html.Partial("Crud")
+@Html.Partial("Pager")
+<table class="grid">
+	<tr>
+		<th>
+		</th>
+		<th>
+			ID
+		</th>
+		<th>
+			Nombre
+		</th>
+		<th>
+			Estado
+		</th>
+	</tr>
+	@foreach (var o in Model.Data)
+ {
+        <tr>
+			<td>
+				@Html.CheckBox("chkSel", new { itemid = o.ID })
+			</td>
+			<td>
+				@o.ID
+			</td>
+			<td>
+				@Html.ActionLink(o.Nombre, "Edit", new { id = o.ID })
+			</td>
+			<td>
+				@o.Estado.Nombre
+			</td>
+		</tr>
+ }
+</table>

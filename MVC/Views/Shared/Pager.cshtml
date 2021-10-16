@@ -1,0 +1,35 @@
+﻿@model Ventus.Models.Paged
+
+<style type="text/css">
+	.pager-button
+	{
+		display: inline-block;
+		padding: 0;
+		width: 21px;
+		height: 16px;
+	}
+	.pager-button.prev
+	{
+		margin: 0 2px 0 0;
+	}
+	.pager-button.next
+	{
+		margin: 0 0 0 4px;
+	}
+</style>
+<div style="padding-bottom: 4px">
+	<input type="button" value="<" class="pager-button prev" onclick="location.href='@Url.Action("PrevPage")'" />
+	<div id="pager" style="width: 100px; display: inline-block">
+	</div>
+	<input type="button" value=">" class="pager-button next" onclick="location.href='@Url.Action("NextPage")'" />
+</div>
+<script type="text/javascript">
+	$("#pager").slider({
+		min: 0,
+		max: @Model.MaxPage,
+		value: @Model.PageIndex,
+		change: function(event, ui) {
+			location.href = '@Url.Action("GoPage")/' + ui.value;
+		}
+	});
+</script>

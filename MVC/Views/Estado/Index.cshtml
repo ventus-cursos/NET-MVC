@@ -1,0 +1,31 @@
+﻿@model List<Ventus.BE.Estado>
+@{
+    ViewBag.Title = "Estados";
+}
+@Html.Partial("Crud")
+<table class="grid">
+	<tr>
+		<th>
+		</th>
+		<th>
+			ID
+		</th>
+		<th>
+			Nombre
+		</th>
+	</tr>
+	@foreach (var o in Model)
+ {
+        <tr>
+			<td>
+				@Html.CheckBox("chkSel", new { itemid = o.ID })
+			</td>
+			<td>
+				@o.ID
+			</td>
+			<td>
+				@Html.ActionLink(o.Nombre, "Edit", new { id = o.ID })
+			</td>
+		</tr>
+ }
+</table>

@@ -1,0 +1,70 @@
+﻿body
+{
+	margin: 0;
+}
+body, td
+{
+	font-family: Verdana,Arial,sans-serif;
+	font-size: 12px;
+}
+td, th
+{
+	padding: 0 4px;
+}
+.grid
+{
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+.grid th
+{
+	background-color: #6495ed;
+	padding: 4px;
+	color: #ffffff;
+}
+.grid td, .grid th
+{
+	border: 1px solid #000000;
+}
+
+.grid a:link, .grid a:visited
+{
+	color: #4682b4;
+	text-decoration: none;
+}
+.toolbar
+{
+	background-color: #dcdcdc;
+	margin-bottom: 16px;
+}
+.button
+{
+	width: 32px;
+	height: 32px;
+	margin: 4px 0;
+	border-style: outset;
+	border-width: 1px;
+	background-color: #dcdcdc;
+	cursor: hand;
+	cursor: pointer;
+}
+.button.new
+{
+	background-image: url('../image/new.png');
+}
+.button.edit
+{
+	background-image: url('../image/edit.png');
+}
+.button.save
+{
+	background-image: url('../image/save.png');
+}
+.button.delete
+{
+	background-image: url('../image/delete.png');
+}
+input .disabled
+{
+	background-color: #efefef;
+}

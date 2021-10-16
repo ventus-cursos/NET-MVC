@@ -1,0 +1,37 @@
+﻿<div class="toolbar">
+	<input type="button" class="button new" title="Nuevo" onclick="New();" />
+	<input type="button" class="button edit" title="Editar" onclick="Edit();" />
+	<input type="button" class="button delete" title="Borrar" onclick="Delete();" />
+</div>
+<script type="text/javascript">
+	function New() {
+		location.href = '@Url.Action("New")';
+	}
+
+	function Edit() {
+		var sel = Selected();
+		if (sel.length == 1) {
+			location.href = '@Url.Action("Edit")/' + sel[0];
+		} else
+			window.alert('Por favor seleccione un renglón.');
+	}
+
+	function Delete() {
+		var sel = Selected();
+		if (sel.length > 0) {
+			if (window.confirm('¿Seguro desea eliminar ' + sel.length + ' renglón[es]?'))
+				location.href = '@Url.Action("Delete")?ids=' + sel.join(',');
+		} else {
+			window.alert('Por favor seleccione al menos un renglón.');
+		}
+	}
+
+	function Selected() {
+		var sel = [];
+		$('input[type=checkbox]').each(function () {
+			if (this.checked)
+				sel.push($(this).attr('itemid'));
+		});
+		return sel;
+	}
+</script>

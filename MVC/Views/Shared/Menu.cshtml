@@ -1,0 +1,37 @@
+﻿<div>
+	<ul id="menubar">
+		<li><a href="#">Reference</a>
+			<ul>
+				<li>
+					@Html.ActionLink("Clientes", "Index", "Cliente")
+				</li>
+				<li></li>
+				<li>
+					@Html.ActionLink("Ciudades", "Index", "Ciudad") </li>
+				<li>
+					@Html.ActionLink("Estado", "Index", "Estado") </li>
+			</ul>
+		</li>
+		<li><a href="#">Transaction</a>
+			<ul>
+				<li>
+					@Html.ActionLink("Ordenes", "Index", "Orden")</li>
+			</ul>
+		</li>
+		<li style="float: right"><a href="#">User</a>
+			<ul>
+				<li>
+					@Html.ActionLink("Logout", "Logout", "Home")</li>
+			</ul>
+		</li>
+		<li style="float: right"><a href="#">Tools</a>
+			<ul>
+				<li>
+					@Html.ActionLink("Ver Cache", "Index", "ViewCache")</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<script type="text/javascript">
+	$("#menubar").menubar();
+</script>
